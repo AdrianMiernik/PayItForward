@@ -1,5 +1,5 @@
 # Pay It Forward
->Appicaton developed for people who are willing to share their things with others. 
+>Applicaton developed for people who are willing to share their things with others. 
 
 ## Table of elements
 * [Description](#description)
