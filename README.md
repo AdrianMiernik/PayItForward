@@ -14,12 +14,13 @@ Remember - the good comes back.
 ## Technogy Stack
 * Java
 * JUnit
+* Mockito
 * Spring boot
 * Spring data
 * Spring security
 * Hibernate
-* MySql
-* JSP
+* H2 database
+* Thymeleaf
 
 
 ## Functionality
