@@ -1,5 +1,5 @@
 # Pay It Forward
->Appicaton developed for people who are willing to share their things with others. 
+>Applicaton developed for people who are willing to share their things with others. 
 
 ## Table of elements
 * [Description](#description)
@@ -14,12 +14,13 @@ Remember - the good comes back.
 ## Technogy Stack
 * Java
 * JUnit
+* Mockito
 * Spring boot
 * Spring data
 * Spring security
 * Hibernate
-* MySql
-* JSP
+* H2 database
+* Thymeleaf
 
 
 ## Functionality
