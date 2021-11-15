@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration form</title>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+
+</head>
+<body>
+
+	<div th:include="page::header"></div>
+
+	<br>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-1">
+
+				<!-- error message -->
+				<div th:if="${param.error}">
+					<div class="alert alert-danger">Invalid input in the form.</div>
+				</div>
+
+				<h1>Add Donation</h1>
+
+				<form th:action="@{/donation}" method="post" th:object="${donation}">
+
+					<!-- <div>
+						<input type="hidden" th:field="*{id}" />
+					</div> -->
+					
+					<h3>Choose what you want to donate:</h3>
+					<div class="form-group" th:each="category : ${categories}">
+						<label>
+							<input type="checkbox" th:value="${category.id}" name="categories"/>
+							<span class="description" th:text="${category.name}"></span>
+						</label>
+					</div>
+					<div th:if="${#fields.hasErrors('categories')}" th:text="${#fields.errors('categories')}"
+                             class="error" style="color: red;">
+                        </div>
+					
+					
+					<h3>Provide the number of 60l boxes in which you packed the things:</h3>
+						<div class="form-group">
+            			<input type="number" th:field="*{quantity}" class="form-control mb-4 col-4">
+           				<div> <span style="color: red;" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">Error name</span></div>
+					</div>
+
+					 <h3>Choose institution:</h3>
+					<div class="form-group">
+					  <div><label><b>Institution:</b></label></div>
+           				 <select th:field="*{institution}" class="form-control mb-4 col-4">
+                			<th:block th:each="institution : ${institutions}">
+                    			<option th:text="${institution.name}" th:value="${institution.id}"/>
+                			</th:block>
+               			 </select>
+               			 <div th:if="${#fields.hasErrors('institution')}" th:text="${#fields.errors('institution')}"
+                         class="error" style="color: red;">
+                    </div>
+					</div> 
+					
+					
+
+					<h3>Enter the address and date of items receipt by the courier:</h3>
+					<div class="form-group">
+					  	<div><label><b>City:</b></label></div>
+            			<input type="text" th:field="*{city}" class="form-control mb-4 col-4">
+           				<div> <span style="color: red;" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Error name</span></div>
+					</div>
+
+					<div class="form-group">
+					  	<div><label><b>Street:</b></label></div>
+            			<input type="text" th:field="*{street}" class="form-control mb-4 col-4">
+           				<div> <span style="color: red;" th:if="${#fields.hasErrors('street')}" th:errors="*{street}">Error name</span></div>
+					</div>
+					
+
+					<div class="form-group">
+					  	<div><label><b>Zip Code:</b></label></div>
+            			<input type="text" th:field="*{zipCode}" class="form-control mb-4 col-4">
+           				<div> <span style="color: red;" th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}">Error name</span></div>
+					</div>
+					
+					<div class="form-group">
+					  	<div><label><b>Phone Number:</b></label></div>
+            			<input type="text" th:field="*{phoneNumber}" class="form-control mb-4 col-4" placeholder="+48 500 600 700">
+           				<div> <span style="color: red;" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Error name</span></div>
+					</div>
+					
+					<div class="form-group">
+					  	<div><label><b>Pick Up Date:</b></label></div>
+            			<input type="date" th:field="*{pickUpDate}" class="form-control mb-4 col-4">
+           				<div> <span style="color: red;" th:if="${#fields.hasErrors('pickUpDate')}" th:errors="*{pickUpDate}">Error name</span></div>
+					</div>
+					
+					<div class="form-group">
+					  	<div><label><b>Pick Up Time:</b></label></div>
+            			<input type="time" th:field="*{pickUpTime}" class="form-control mb-4 col-4">
+           				<div> <span style="color: red;" th:if="${#fields.hasErrors('pickUpTime')}" th:errors="*{pickUpTime}">Error name</span></div>
+					</div>
+					
+					<div class="form-group">
+					  	<div><label><b>Comments:</b></label></div>
+            			<input type="text" th:field="*{pickUpComment}" class="form-control mb-4 col-4">
+           				<div> <span style="color: red;" th:if="${#fields.hasErrors('pickUpComment')}" th:errors="*{pickUpComment}">Error name</span></div>
+					</div>
+					
+
+
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">Confirm</button>
+
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div th:include="page::footer"></div>
+</body>
+</html>
