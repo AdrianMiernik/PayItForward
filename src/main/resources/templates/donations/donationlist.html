@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Donation List</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+	
+</head>
+<body>
+<div th:include="page::header"></div>
+<br>
+<br>
+
+	<div class="container my-2">
+	<h1>Individual Donations:</h1>
+	
+	<a th:href = "@{/donation}" class="btn btn-primary btn-sm mb-3"> Add Donation </a>
+	
+		<h3>Active:</h3>
+		<table border="1" class = "table table-striped table-responsive-md">
+			<thead>
+				<tr>
+				<!-- 	<th>Id:</th> -->
+					<th>Institution:</th>
+					<th>Categories:</th>
+					<th>Boxes:</th>
+					<th>City:</th>
+					<th>Street:</th>
+					<th>Zip Code:</th>
+					<th>Pick-Up Date:</th>
+					<th>Pick-Up Time:</th>
+					<th>Pick-Up Comment:</th>
+					<th>Actual Pick-Up Date:</th>
+					<th> Actions:</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="donation : ${donations}">
+				<!-- 	<td th:text="${donation.id}"></td> -->
+					<td th:text="${donation.institution.name}"></td>
+					<td>
+            			<p th:each="category: ${donation.categories}">
+                			<span th:text="${category.name}">Category</span>
+            			</p>
+       				</td>
+					<td th:text="${donation.quantity}"></td>
+					<td th:text="${donation.city}"></td>
+					<td th:text="${donation.street}"></td>
+					<td th:text="${donation.zipCode}"></td>
+					<td th:text="${donation.pickUpDate}"></td>
+					<td th:text="${donation.pickUpTime}"></td>
+					<td th:text="${donation.pickUpComment}"></td>
+					<td th:text="${donation.actualPickUpDate}"></td>
+					<td> 
+					<!-- Solution @RequestParam -->
+						<form th:action="@{/donation/updateDonation}" th:method="post">
+                            <input type="hidden" name="id" th:value="${donation.id}">
+                            <button style="margin-bottom: 10px; width: 7.5em;" type="submit" class="btn btn-primary">Is Picked-Up</button>
+                        </form>
+                        <form th:action="@{/donation/deleteDonation}" th:method="post">
+                            <input type="hidden" name="id" th:value="${donation.id}">
+                            <button type="submit" class="btn btn-danger">Cancellation</button>
+                        </form>
+					</td>
+					
+					
+					<!-- Alternative Solution @PathVariable
+					<td>
+						<a style="margin-bottom: 10px" th:href="@{/donation/updateDonation/{id}(id=${donation.id})}" class="btn btn-primary">Pick-up done</a>
+					    <a th:href="@{/donation/deleteDonation/{id}(id=${donation.id})}" class="btn btn-danger">Cancellation</a> 
+					</td> -->
+					
+				</tr>
+			</tbody>
+		</table>
+		
+		<h3>Historical data:</h3>
+		<table border="1" class = "table table-striped ">
+			<thead>
+				<tr>
+					<th>Institution:</th>
+					<th>Categories:</th>
+					<th>Boxes:</th>
+					<th>City:</th>
+					<th>Street:</th>
+					<th>Zip Code:</th>
+					<th>Pick-Up Date:</th>
+					<th>Pick-Up Time:</th>
+					<th>Pick-Up Comment:</th>
+					<th>Actual Pick-Up Date:</th>
+					<th> Actions:</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="donation : ${donationsPast}">
+					<td th:text="${donation.institution.name}"></td>
+					<td>
+            			<p th:each="category: ${donation.categories}">
+                			<span th:text="${category.name}">Category</span>
+            			</p>
+       				</td>
+					<td th:text="${donation.quantity}"></td>
+					<td th:text="${donation.city}"></td>
+					<td th:text="${donation.street}"></td>
+					<td th:text="${donation.zipCode}"></td>
+					<td th:text="${donation.pickUpDate}"></td>
+					<td th:text="${donation.pickUpTime}"></td>
+					<td th:text="${donation.pickUpComment}"></td>
+					<td th:text="${donation.actualPickUpDate}"></td>
+					<td>
+					<p></p>
+				<button style="margin-bottom: 10px; width: 7.5em; height: 3.5em; color:white; background-color:rgb(62, 138, 54); border-radius: 1ex; " >Completed</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
