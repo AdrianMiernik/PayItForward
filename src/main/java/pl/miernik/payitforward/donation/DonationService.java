@@ -70,7 +70,6 @@ public class DonationService implements IDonationService {
                 .collect(Collectors.toList());
     }
 
-
     @Override
     public List<DonationDto> findAllByPrincipalPast() throws NotExistingRecordException {
         Long principalId = userService.getPrincipal().getId();
@@ -78,7 +77,6 @@ public class DonationService implements IDonationService {
                 .filter(donation -> donation.getIsPickedUp().equals(true)).map(donationMapper::donationToDto)
                 .collect(Collectors.toList());
     }
-
 
     @Override
     public Map<String, Integer> findTopThree() {
