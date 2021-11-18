@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+
+span{
+    color: red;
+    font-style: italic;
+}
+
+.rollover{
+    padding-top: 20px;
+}
+
+.error {
+    padding-top: 10px;
+    color: red;
+}
