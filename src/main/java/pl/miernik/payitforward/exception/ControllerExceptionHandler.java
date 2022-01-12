@@ -5,13 +5,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-
 @ControllerAdvice
 public class ControllerExceptionHandler {
     @ExceptionHandler(value = { NotExistingRecordException.class })
-    public ModelAndView handleConflict(HttpServletRequest request,
-                                       Exception exception) {
+    public ModelAndView handleConflict(Exception exception) {
         exception.printStackTrace();
         ModelAndView mav = new ModelAndView();
         mav.setStatus(HttpStatus.NOT_FOUND);

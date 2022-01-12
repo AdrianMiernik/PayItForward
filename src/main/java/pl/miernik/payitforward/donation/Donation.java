@@ -69,15 +69,10 @@ public class Donation {
 
     private LocalDate updated;
 
-
     @PrePersist
     private void prePersist() {
         isPickedUp = false;
         created = LocalDate.now();
     }
 
-    @PreUpdate
-    private void preUpdate() {
-        created = LocalDate.now();
-    }
 }
