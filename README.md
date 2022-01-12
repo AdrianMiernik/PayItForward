@@ -1,5 +1,5 @@
 # Pay It Forward
->Applicaton developed for people who are willing to share their things with others. 
+>Application developed for people who are willing to share their things with others. 
 
 ## Table of elements
 * [Description](#description)
@@ -24,18 +24,14 @@ Remember - the good comes back.
 
 
 ## Functionality
-
-#### Administrator
-* login
-* manage users - CRUD
-* manage institutions - CRUD
-* donations overview
-* users overview – possibility to remove
-
-#### User
-* login 
-* register – if account does not exist
-* manage donations - CRUD
+* Functionality
+* Register with unique email, login with secured password
+* Add donation - few mandatory fields, pick up date from the future
+* Manage donations: cancel or mark it picked up
+* List of available institutions - pagination, sorting
+* Top three donators - ranking
+* Total number of donations and shared boxes
+* Navigation bar
 
 #### To do
 
