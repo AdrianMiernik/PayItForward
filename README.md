@@ -25,7 +25,6 @@ Remember - the good comes back.
 * H2 database
 * Thymeleaf
 
-
 ## Functionality
 * Functionality
 * Register with unique email, login with secured password
