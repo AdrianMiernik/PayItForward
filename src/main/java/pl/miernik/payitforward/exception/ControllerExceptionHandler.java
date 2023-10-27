@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @ControllerAdvice
 public class ControllerExceptionHandler {
-    @ExceptionHandler(value = { NotExistingRecordException.class })
+    @ExceptionHandler(value = {NotExistingRecordException.class})
     public ModelAndView handleConflict(Exception exception) {
         exception.printStackTrace();
         ModelAndView mav = new ModelAndView();

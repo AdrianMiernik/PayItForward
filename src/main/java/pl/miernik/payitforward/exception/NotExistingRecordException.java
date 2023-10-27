@@ -5,7 +5,7 @@ import java.util.function.Supplier;
 public class NotExistingRecordException extends Exception implements Supplier<NotExistingRecordException> {
     private static final long serialVersionUID = 1L;
 
-    public NotExistingRecordException (String message) {
+    public NotExistingRecordException(String message) {
         super(message);
     }
 

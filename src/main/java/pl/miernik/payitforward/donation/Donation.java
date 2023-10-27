@@ -61,7 +61,7 @@ public class Donation {
     @Column(name = "actual_pick_up_date")
     private LocalDate actualPickUpDate;
 
-    @Column (name = "is_picked_up")
+    @Column(name = "is_picked_up")
     private Boolean isPickedUp;
 
     @Column(nullable = false)

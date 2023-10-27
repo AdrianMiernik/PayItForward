@@ -1,11 +1,11 @@
 @charset "ISO-8859-1";
 
-span{
+span {
     color: red;
     font-style: italic;
 }
 
-.rollover{
+.rollover {
     padding-top: 20px;
 }
 

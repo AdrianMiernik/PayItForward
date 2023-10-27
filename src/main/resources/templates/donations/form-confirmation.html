@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-	
-	
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Confirmation</title>
+    <meta charset="ISO-8859-1">
+    <title>Confirmation</title>
 </head>
 
-  <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-   <!-- Bootstrap CSS -->
+<!-- Bootstrap CSS -->
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
 
 <body>
-	<!-- create navigation bar ( header) -->
-	<div th:include="page::header"></div>
+<!-- create navigation bar ( header) -->
+<div th:include="page::header"></div>
 <br><br><br><br>
 
-	<div class="container">
-		<div class="form-group">
-		<h2>Good comes back. Thank you for the donation. Our courier will be contacting you soon... </h2>
-		<!-- Welcome <span sec:authentication="principal.username"> User</span> -->
-		<img style="width: 300px; height: 300px" th:src="@{/images/courier.png}">
-	</div>
-	</div>
-	
-	
+<div class="container">
+    <div class="form-group">
+        <h2>Good comes back. Thank you for the donation. Our courier will be contacting you soon... </h2>
+        <!-- Welcome <span sec:authentication="principal.username"> User</span> -->
+        <img style="width: 300px; height: 300px" th:src="@{/images/courier.png}">
+    </div>
+</div>
+
+
 </body>
 </html>
