@@ -30,7 +30,6 @@ https://drive.google.com/file/d/1OHFdNIrqsydmZ2-4CEDo1ehC17364i_h/view?usp=shari
 
 ## Functionality
 
-* Functionality
 * Register with unique email, login with secured password
 * Add donation - few mandatory fields, pick up date from the future
 * Manage donations: cancel or mark it picked up
